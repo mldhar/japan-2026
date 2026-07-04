@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Japan · Nov 20–29, 2026</title>
+<style>
+  :root{
+    --ink:#16141f; --ink2:#1e1b2a; --card:#232031; --line:#37324a;
+    --momiji:#e8543a; --gold:#d9a441; --matcha:#8fae6b; --mist:#b9b3cc;
+    --text:#efece4; --dim:#9d97b3;
+    --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{background:var(--ink);color:var(--text);font-family:var(--sans);line-height:1.6}
+
+  /* ---------- Nav ---------- */
+  nav{position:sticky;top:0;z-index:50;background:rgba(22,20,31,.92);backdrop-filter:blur(10px);
+      border-bottom:1px solid var(--line);display:flex;gap:.25rem;overflow-x:auto;padding:.6rem 1rem;
+      -webkit-overflow-scrolling:touch}
+  nav a{color:var(--dim);text-decoration:none;font-size:.78rem;letter-spacing:.05em;white-space:nowrap;
+      padding:.35rem .7rem;border-radius:999px;border:1px solid transparent;transition:.2s}
+  nav a:hover{color:var(--text);border-color:var(--line)}
+  nav a.hot{color:var(--gold)}
+
+  /* ---------- Hero ---------- */
+  header{position:relative;padding:5.5rem 1.5rem 4rem;text-align:center;overflow:hidden;
+      background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(232,84,58,.22),transparent 60%),
+                 radial-gradient(ellipse 50% 40% at 85% 15%,rgba(217,164,65,.12),transparent 60%),var(--ink)}
+  .kanji{position:absolute;font-family:var(--serif);color:rgba(232,84,58,.07);user-select:none;pointer-events:none}
+  .k1{font-size:16rem;top:-3rem;left:-2rem;transform:rotate(-8deg)}
+  .k2{font-size:11rem;bottom:-2rem;right:-1rem;transform:rotate(6deg)}
+  header .eyebrow{color:var(--gold);letter-spacing:.35em;font-size:.72rem;text-transform:uppercase}
+  header h1{font-family:var(--serif);font-weight:500;font-size:clamp(2.4rem,7vw,4.2rem);margin:.6rem 0 .4rem}
+  header h1 em{color:var(--momiji);font-style:normal}
+  header p.sub{color:var(--mist);max-width:34rem;margin:0 auto;font-size:1rem}
+  .strip{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-top:1.8rem}
+  .chip{border:1px solid var(--line);border-radius:999px;padding:.4rem .95rem;font-size:.8rem;color:var(--mist);background:rgba(255,255,255,.02)}
+  .chip b{color:var(--text);font-weight:600}
+
+  main{max-width:52rem;margin:0 auto;padding:0 1.25rem 5rem}
+  section{margin-top:4rem}
+  h2{font-family:var(--serif);font-weight:500;font-size:1.9rem;margin-bottom:.35rem}
+  .h2sub{color:var(--dim);font-size:.92rem;margin-bottom:1.4rem}
+  .rule{height:1px;background:linear-gradient(90deg,var(--momiji),transparent);margin:.8rem 0 1.4rem}
+
+  /* ---------- Day cards ---------- */
+  .day{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.5rem 1.5rem 1.2rem;
+      margin-bottom:1.4rem;position:relative;overflow:hidden}
+  .day::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent,var(--momiji))}
+  .dayhead{display:flex;align-items:baseline;gap:.9rem;flex-wrap:wrap;margin-bottom:.2rem}
+  .daynum{font-family:var(--serif);font-size:.75rem;letter-spacing:.25em;color:var(--accent,var(--momiji));text-transform:uppercase}
+  .daydate{font-size:.8rem;color:var(--dim)}
+  .day h3{font-family:var(--serif);font-weight:500;font-size:1.4rem;margin:.15rem 0 .2rem}
+  .route{color:var(--dim);font-size:.85rem;margin-bottom:1rem}
+  .stop{display:grid;grid-template-columns:5.2rem 1fr;gap:.9rem;padding:.55rem 0;border-top:1px dashed var(--line)}
+  .stop:first-of-type{border-top:none}
+  .t{color:var(--gold);font-size:.8rem;font-variant-numeric:tabular-nums;padding-top:.15rem}
+  .stop b{font-weight:600}
+  .stop small{display:block;color:var(--dim);font-size:.83rem;line-height:1.5;margin-top:.1rem}
+  .tags{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:.9rem}
+  .tag{font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;padding:.22rem .6rem;border-radius:4px;border:1px solid var(--line);color:var(--mist)}
+  .tag.res{border-color:rgba(232,84,58,.5);color:#f2917e}
+  .tag.train{border-color:rgba(217,164,65,.5);color:var(--gold)}
+  .tag.food{border-color:rgba(143,174,107,.5);color:var(--matcha)}
+
+  /* ---------- Hotels ---------- */
+  .plans{display:grid;gap:1.2rem}
+  @media(min-width:720px){.plans{grid-template-columns:1fr 1fr}}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.4rem}
+  .plan.rec{border-color:rgba(217,164,65,.55);box-shadow:0 0 40px rgba(217,164,65,.06)}
+  .plan .badge{display:inline-block;font-size:.66rem;letter-spacing:.15em;text-transform:uppercase;
+      color:var(--ink);background:var(--gold);border-radius:4px;padding:.2rem .55rem;margin-bottom:.7rem}
+  .plan h3{font-family:var(--serif);font-weight:500;font-size:1.25rem;margin-bottom:.7rem}
+  .plan ul{list-style:none}
+  .plan li{padding:.5rem 0;border-top:1px dashed var(--line);font-size:.9rem}
+  .plan li:first-child{border-top:none}
+  .plan li span{color:var(--dim);display:block;font-size:.8rem}
+  .pts{color:var(--gold)}
+  .note{background:rgba(232,84,58,.07);border:1px solid rgba(232,84,58,.3);border-radius:12px;
+      padding:1rem 1.2rem;font-size:.88rem;color:var(--mist);margin-top:1.3rem}
+  .note b{color:var(--text)}
+
+  /* ---------- Checklist ---------- */
+  .check{list-style:none}
+  .check li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.75rem 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .check .when{color:var(--momiji);font-weight:600;font-size:.8rem;padding-top:.15rem}
+  .check li small{color:var(--dim);display:block;font-size:.82rem}
+
+  footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
+  footer .mon{font-family:var(--serif);color:var(--momiji);font-size:1.4rem;display:block;margin-bottom:.4rem}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#d1">Arrive</a><a href="#d2">Sat · Uji</a><a href="#d3">Sun · Nara+Kibune</a>
+  <a href="#d4" class="hot">Mon · Garaku→Osaka</a><a href="#d5">Tue · Back to Tokyo</a><a href="#d6" class="hot">Wed · Fuji</a>
+  <a href="#d7">Thu · Sushi Boat</a><a href="#d8">Fri · teamLab+Wagyu</a><a href="#d9">Sat · Kamakura</a><a href="#d10">Depart</a>
+  <a href="#hotels" class="hot">Hotels</a><a href="#book">Book</a>
+</nav>
+
+<header>
+  <span class="kanji k1">紅葉</span><span class="kanji k2">旅</span>
+  <div class="eyebrow">November 20 – 29 · 2026 · Round-trip Tokyo (DTW ⇄ HND)</div>
+  <h1>Japan in <em>Momiji</em> Season</h1>
+  <p class="sub">Kansai first, Tokyo grand finale. Nine nights across Kyoto, Uji, Nara, Osaka, Mt. Fuji & Tokyo — food pilgrimages, two specialty trains, one sushi boat, peak autumn color.</p>
+  <div class="strip">
+    <div class="chip"><b>9</b> nights</div>
+    <div class="chip"><b>2</b> Conrads · <b>1</b> Hilton Kyoto</div>
+    <div class="chip"><b>2</b> specialty trains + sushi boat</div>
+    <div class="chip">Big bags <b>stay at Conrad Tokyo</b> during Kansai loop</div>
+  </div>
+</header>
+
+<main>
+
+<section id="days">
+  <h2>Day by Day</h2>
+  <div class="h2sub">Kansai leads so the weekend-only Garaku train lands on the Nov 23 holiday — and so departure day is a stroll, not a shinkansen sprint. Every day is ordered around real closures: Yorozu closes Mon · Bongo closes Sun · Iyoshi & Sushi Origami close Tue/Wed.</div>
+
+  <div class="day" id="d1" style="--accent:#7d7691">
+    <div class="dayhead"><span class="daynum">Day 01</span><span class="daydate">Fri, Nov 20</span></div>
+    <h3>Arrive Tokyo</h3>
+    <div class="route">Haneda → Conrad Tokyo (Shiodome) → Marunouchi</div>
+    <div class="stop"><span class="t">Evening</span><div><b>Marunouchi Illuminations</b><small>Champagne-gold streets near Tokyo Station. Easy dinner, early night. Pack a 3-night bag tonight — big luggage stays in Conrad storage while you loop Kansai.</small></div></div>
+    <div class="tags"><span class="tag">Low effort</span></div>
+  </div>
+
+  <div class="day" id="d2" style="--accent:#8fae6b">
+    <div class="dayhead"><span class="daynum">Day 02</span><span class="daydate">Sat, Nov 21</span></div>
+    <h3>Shinkansen to Kyoto → Uji Matcha</h3>
+    <div class="route">Tokyo → Kyoto (~2h15) → matcha's hometown → tsukemen dinner</div>
+    <div class="stop"><span class="t">8:30 AM</span><div><b>Nozomi shinkansen, Tokyo → Kyoto</b><small>Sit on the right side (seats E) for a possible Fuji glimpse. Drop bags at Hilton Kyoto ~11:30.</small></div></div>
+    <div class="stop"><span class="t">12:30 PM</span><div><b>Nakamura Tokichi Honten, Uji</b><small>Grab a queue ticket first (Saturday waits run 1–2 hrs, trackable by phone), then explore while you wait.</small></div></div>
+    <div class="stop"><span class="t">1:00 PM</span><div><b>Byōdō-in Temple</b><small>The Phoenix Hall (it's on the ¥10 coin) ringed by red maples — perfect queue-killing stop, 5 min away.</small></div></div>
+    <div class="stop"><span class="t">3:00 PM</span><div><b>The matcha parfait</b><small>The definitive Uji experience. Then stroll the Uji River bridge.</small></div></div>
+    <div class="stop"><span class="t">5:30 PM</span><div><b>Ginjo Ramen Kubota</b><small>Back near Kyoto Station. Queue ~5:30 for 6pm dinner service — whole party present, ticket machine first. Miso tsukemen.</small></div></div>
+    <div class="stop"><span class="t">Optional</span><div><b>teamLab Biovortex Kyoto</b><small>The collective's newest permanent museum (opened Oct 2025), near Kyoto Station — slots neatly before Kubota.</small></div></div>
+    <div class="tags"><span class="tag train">Shinkansen</span><span class="tag food">Matcha + ramen</span></div>
+  </div>
+
+  <div class="day" id="d3" style="--accent:#d9a441">
+    <div class="dayhead"><span class="daynum">Day 03</span><span class="daydate">Sun, Nov 22</span></div>
+    <h3>Aoniyoshi to Nara → Kibune by Lantern-Light</h3>
+    <div class="route">Heritage coffee → specialty train #1 → deer + Great Buddha → illuminated maple tunnel</div>
+    <div class="stop"><span class="t">7:15 AM</span><div><b>Ogawa Coffee — Sakaimachi Nishiki</b><small>The 1952 roaster's heritage flagship: charcoal-grilled toast, koji butter, courtyard garden. Opens 7am — breakfast before the train.</small></div></div>
+    <div class="stop"><span class="t">Morning</span><div><b>Aoniyoshi Sightseeing Train, Kyoto → Nara</b><small>Kintetsu limited express with lounge seating — reserve ~1 month out.</small></div></div>
+    <div class="stop"><span class="t">10:30 AM</span><div><b>Tōdai-ji + Nara Park</b><small>Great Buddha, bowing deer, Nakatanidou's pounded mochi. Return to Kyoto ~3:30, rest at the hotel.</small></div></div>
+    <div class="stop"><span class="t">5:30 PM</span><div><b>Eizan Railway → Kifune Shrine</b><small>From Demachiyanagi the train slows through the illuminated momiji tunnel (verify light-up dates). Lantern-lined steps, water-reveal omikuji, warm dinner in Kibune village.</small></div></div>
+    <div class="tags"><span class="tag train">Aoniyoshi + Eizan</span><span class="tag res">Reserve: Aoniyoshi</span></div>
+  </div>
+
+  <div class="day" id="d4">
+    <div class="dayhead"><span class="daynum">Day 04</span><span class="daydate">Mon, Nov 23 · national holiday</span></div>
+    <h3>Garaku Train → Osaka Nights</h3>
+    <div class="route">Specialty train #2 (holidays only — today!) → Kuromon → Dotonbori → shime parfait</div>
+    <div class="stop"><span class="t">10:15 AM</span><div><b>Kyo-Train Garaku, Kyoto-Kawaramachi → Osaka-Umeda</b><small>Runs weekends & holidays only — the whole reason Kansai leads this trip. Standard fare (~¥410), free seating; board early for the zen-garden car. Hilton Kyoto is steps from the station.</small></div></div>
+    <div class="stop"><span class="t">12:00 PM</span><div><b>Check in / drop bags — Conrad Osaka</b><small>40th-floor sky lobby, Nakanoshima. Then out.</small></div></div>
+    <div class="stop"><span class="t">1:00 PM</span><div><b>Kuromon Market</b><small>Lunch = grazing: wagyu skewers, uni, king crab. Vendors sell out mid-afternoon.</small></div></div>
+    <div class="stop"><span class="t">5:00 PM</span><div><b>Dotonbori</b><small>Glico man, takoyaki, kushikatsu — Osaka at full volume.</small></div></div>
+    <div class="stop"><span class="t">9:30 PM</span><div><b>Ijou Maru Parfait, Kitashinchi</b><small>The Osaka "shime parfait" (closing parfait) ritual. ~12-min walk back across the river to the Conrad.</small></div></div>
+    <div class="tags"><span class="tag train">Garaku</span><span class="tag food">Osaka feast</span></div>
+  </div>
+
+  <div class="day" id="d5" style="--accent:#7d7691">
+    <div class="dayhead"><span class="daynum">Day 05</span><span class="daydate">Tue, Nov 24</span></div>
+    <h3>Return to Tokyo → Ginza Afternoon</h3>
+    <div class="route">Easy morning → shinkansen → reunite with your luggage → goldfish art</div>
+    <div class="stop"><span class="t">11:00 AM</span><div><b>Shinkansen, Shin-Osaka → Tokyo</b><small>~2.5 hrs. Check back into Conrad Tokyo — your big bags are waiting.</small></div></div>
+    <div class="stop"><span class="t">2:30 PM</span><div><b>Ginza Mitsukoshi</b><small>Start at the B2 depachika food hall. 15-min walk from the hotel.</small></div></div>
+    <div class="stop"><span class="t">4:00 PM</span><div><b>Art Aquarium Museum</b><small>9F of the same building — goldfish in sculptural lit tanks. Timed tickets online; autumn momiji exhibition.</small></div></div>
+    <div class="stop"><span class="t">5:45 PM</span><div><b>Hokkaido Dosanko Plaza</b><small>Yurakucho, adjacent. The milk soft serve. Early night — driver comes at dawn.</small></div></div>
+    <div class="tags"><span class="tag train">Shinkansen</span><span class="tag res">Reserve: aquarium</span></div>
+  </div>
+
+  <div class="day" id="d6" style="--accent:#d9a441">
+    <div class="dayhead"><span class="daynum">Day 06</span><span class="daydate">Wed, Nov 25</span></div>
+    <h3>Mt. Fuji Private Driver Day</h3>
+    <div class="route">Round-trip from Tokyo: Chureito → Kawaguchiko → Oshino Hakkai</div>
+    <div class="stop"><span class="t">9:30 AM</span><div><b>Chureito Pagoda</b><small>THE Fuji photo. ~400 steps; late-Nov air is the year's clearest.</small></div></div>
+    <div class="stop"><span class="t">11:15 AM</span><div><b>Oishi Park, Lake Kawaguchiko</b><small>Lakefront panorama. Hōtō noodles for lunch nearby.</small></div></div>
+    <div class="stop"><span class="t">1:30 PM</span><div><b>Oshino Hakkai</b><small>Crystal spring ponds, thatched village, grilled-fish snacks. Back in Tokyo ~6pm; low-key dinner near the hotel.</small></div></div>
+    <div class="tags"><span class="tag res">Reserve: private driver</span></div>
+  </div>
+
+  <div class="day" id="d7">
+    <div class="dayhead"><span class="daynum">Day 07</span><span class="daydate">Thu, Nov 26</span></div>
+    <h3>Asakusa Dawn → Sweets Line → Sushi Boat</h3>
+    <div class="route">Pancakes at sunrise → chocolate & pastry → craft cola → wizards → dinner on Tokyo Bay</div>
+    <div class="stop"><span class="t">6:10 AM</span><div><b>Asakusa Yorozu Cafe 444</b><small>Opens 6:30, one-man kitchen, legendary soufflé pancakes. Queue early; one dish per person. (Closed Mondays — Thursday is our shot.)</small></div></div>
+    <div class="stop"><span class="t">8:15 AM</span><div><b>Sensō-ji</b><small>You're already here at the best hour. Nakamise snacks as stalls open.</small></div></div>
+    <div class="stop"><span class="t">10:45 AM</span><div><b>Green Bean to Bar Chocolate</b><small>Nakameguro riverside. Drinking chocolate + bars for gifts.</small></div></div>
+    <div class="stop"><span class="t">11:45 AM</span><div><b>Dolce Tacubo</b><small>Daikanyama, one stop over. Michelin-star spin-off — the cream puff is the sleeper hit.</small></div></div>
+    <div class="stop"><span class="t">1:00 PM</span><div><b>Iyoshi Cola</b><small>Jingumae. Opens 1pm sharp (closed Tue/Wed). Japan Edition + Milkola.</small></div></div>
+    <div class="stop"><span class="t">2:15 PM</span><div><b>Akasaka Station, Exit 3B</b><small>Harry Potter staircase, portraits, time-turner — direct on the Chiyoda line. Leave by 3:30.</small></div></div>
+    <div class="stop"><span class="t">4:30 PM</span><div><b>Yakatabune Sushi Origami ★</b><small>Meet at Higashi-Shinagawa 2-chome Pier (1 min from Tennozu Isle Stn). 8-seat cypress counter, omakase supervised by Michelin-starred Sushi Murayama. Departs 5:00, returns 7:30. Smart casual — no shorts/sandals. ~¥42–47k pp.</small></div></div>
+    <div class="stop"><span class="t">8:15 PM</span><div><b>Toyosu Senkyakubanrai nightcap</b><small>The rooftop <em>ashiyu</em> (footbath) garden — free, bay views, open late. Short hop from the pier.</small></div></div>
+    <div class="tags"><span class="tag res">Reserve: cruise</span><span class="tag food">Biggest food day</span></div>
+  </div>
+
+  <div class="day" id="d8">
+    <div class="dayhead"><span class="daynum">Day 08</span><span class="daydate">Fri, Nov 27</span></div>
+    <h3>Onigiri → Disaster Center → teamLab → Chateaubriand</h3>
+    <div class="route">North Tokyo morning, digital art afternoon, wagyu night</div>
+    <div class="stop"><span class="t">8:15 AM</span><div><b>Onigiri Bongo</b><small>Otsuka. Opens 9 — queue by 8:15 (closed Sundays). Orders taken in line; suji-ko and egg-soy are favorites.</small></div></div>
+    <div class="stop"><span class="t">11:00 AM</span><div><b>Ikebukuro Life Safety Learning Center</b><small>Free earthquake simulator; English session ~noon, first-come. Open Fridays till 9pm.</small></div></div>
+    <div class="stop"><span class="t">1:30 PM</span><div><b>teamLab Borderless ★</b><small>Azabudai Hills B1 (Kamiyachō Stn exit 5). The "museum without a map" — 2 hrs, shoes on, dry. Book timed tickets up to 2 months ahead; ¥3,800–4,800.</small></div></div>
+    <div class="stop"><span class="t">5:30 PM</span><div><b>Jambo Hanare</b><small>Hongō. Chateaubriand prix-fixe. Reservations open exactly 1 month out on TableCheck — <b>alarm: Oct 27</b>. Book the course.</small></div></div>
+    <div class="tags"><span class="tag res">Reserve: teamLab + Jambo</span><span class="tag food">Wagyu night</span></div>
+  </div>
+
+  <div class="day" id="d9" style="--accent:#8fae6b">
+    <div class="dayhead"><span class="daynum">Day 09</span><span class="daydate">Sat, Nov 28</span></div>
+    <h3>Todoroki Ravine → Kamakura Tea</h3>
+    <div class="route">Tokyo's only natural ravine → coffee-lab lunch → temple-town tea house → Takanawa dusk</div>
+    <div class="stop"><span class="t">9:00 AM</span><div><b>Todoroki Ravine Park</b><small>Reopened March 2026 after 2.5 years. Autumn color along the stream; Todoroki Fudō temple at the end. Grippy shoes.</small></div></div>
+    <div class="stop"><span class="t">11:30 AM</span><div><b>Ogawa Coffee Laboratory, Sakurashinmachi</b><small>The lunch course: chef-supervised charcoal-grill dishes, then a barista-guided cup from 21+ beans. Reserve. The experimental twin of Sunday's Kyoto flagship.</small></div></div>
+    <div class="stop"><span class="t">2:45 PM</span><div><b>Kougeanchaya, Kita-Kamakura</b><small>~70 min by JR from Setagaya. Small tea house near the station — verify hours (many close 4–5pm). Pair with Engaku-ji next door (last entry ~4pm in autumn).</small></div></div>
+    <div class="stop"><span class="t">6:15 PM</span><div><b>NEWoMan Takanawa · LuftBaum</b><small>On the ride home (Takanawa Gateway). 28F garden deck; relaxed last-full-day dinner.</small></div></div>
+    <div class="tags"><span class="tag">Nature + tea</span><span class="tag res">Reserve: Ogawa lunch</span></div>
+  </div>
+
+  <div class="day" id="d10" style="--accent:#7d7691">
+    <div class="dayhead"><span class="daynum">Day 10</span><span class="daydate">Sun, Nov 29</span></div>
+    <h3>Tsukiji Send-off → Fly Home from Tokyo</h3>
+    <div class="route">Market breakfast on foot from the hotel → HND/NRT → Detroit</div>
+    <div class="stop"><span class="t">8:00 AM</span><div><b>Turret Coffee</b><small>Opens 8 on Sundays — famous lattes, walking distance from Conrad Tokyo.</small></div></div>
+    <div class="stop"><span class="t">8:45 AM</span><div><b>Tsukiji Outer Market</b><small>One last graze: tamagoyaki, toro, strawberry daifuku. Back at the hotel by 11 to check out. (Only if your flight departs after ~2pm — otherwise head straight out.)</small></div></div>
+    <div class="tags"><span class="tag food">Last bites</span></div>
+  </div>
+</section>
+
+<section id="hotels">
+  <h2>Hotel Strategy — Both Conrads</h2>
+  <div class="h2sub">330,000 Hilton Honors points + 1 free night certificate · peak foliage week — book immediately.</div>
+  <div class="rule"></div>
+  <div class="plans">
+    <div class="plan rec">
+      <span class="badge">Recommended · Plan A</span>
+      <h3>Two Conrads + Points-Shielded Kyoto</h3>
+      <ul>
+        <li><b>Conrad Tokyo</b> · 6 nights, Shiodome (Nov 20 + Nov 24–29)<span>Cash ×5 + <b class="pts">free night cert on Sat Nov 28</b> (priciest night). Walk to Tsukiji/Ginza; stores your big bags during the Kansai loop.</span></li>
+        <li><b>Hilton Kyoto</b> · 2 nights, Kawaramachi Sanjō (Nov 21–23)<span><b class="pts">~190k points</b> (~95k/nt). Steps from the Garaku's departure station, Ogawa flagship, Nishiki.</span></li>
+        <li><b>Conrad Osaka</b> · 1 night, Nakanoshima (Nov 23)<span><b class="pts">~110k points</b> — holiday-Monday cash rates make this strong value. 40F sky lobby; 12-min walk to Kitashinchi.</span></li>
+      </ul>
+    </div>
+    <div class="plan">
+      <span class="badge" style="background:var(--mist)">Plan B · Min-Cash</span>
+      <h3>Value Tokyo, Same Kansai</h3>
+      <ul>
+        <li><b>Hilton Tokyo (Shinjuku) or Odaiba</b> · 6 nights<span>Cash ~$1,500–2,200 total. Cheaper, but adds 30–40 min of cross-town transit daily vs. Shiodome.</span></li>
+        <li><b>Hilton Kyoto</b> · 2 nights<span><b class="pts">~190k points</b>.</span></li>
+        <li><b>Conrad Osaka</b> · Nov 23<span><b class="pts">Free night cert</b> — keeps ~140k points in reserve for a future trip.</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="note"><b>Points reality check (researched July 2026):</b> Hilton has devalued repeatedly — Conrad Tokyo standard awards run ~130k/night (up to 190k peak); Conrad Osaka tops out ~110k; Hilton Kyoto ~95k. Rates are dynamic — confirm exact Nov 2026 pricing in the app before committing. Plan A uses ~300k of your 330k points; 5th-night-free applies to consecutive award nights for Silver+ members (any Hilton Amex qualifies) — not triggered here since no stay is 5 award nights. Flights: book round-trip Detroit ⇄ Tokyo (the DTW–Haneda nonstop is the clean play).</div>
+</section>
+
+<section id="book">
+  <h2>Reservation Countdown</h2>
+  <div class="rule"></div>
+  <ul class="check">
+    <li><span class="when">NOW</span><div>Flights (DTW ⇄ HND round-trip) · all hotels · Mt. Fuji private driver<small>Foliage week + a holiday weekend (Nov 21–23) — inventory evaporates.</small></div></li>
+    <li><span class="when">ASAP</span><div>Yakatabune Sushi Origami — Executive Dinner, <b>Thu Nov 26</b><small>8 seats total. Book via OMAKASE/byfood. Strict cancellation; smart casual dress code.</small></div></li>
+    <li><span class="when">~Sep 27</span><div>teamLab Borderless timed entry, <b>Fri Nov 27</b> ~1:30 PM<small>Sales open ~2 months out. Also grab Art Aquarium (Nov 24) + optional Biovortex Kyoto (Nov 21).</small></div></li>
+    <li><span class="when">~Oct 22</span><div>Aoniyoshi seats, Kyoto → Nara, <b>Sun Nov 22</b><small>Kintetsu booking ~1 month out.</small></div></li>
+    <li><span class="when">Oct 27</span><div>Jambo Hanare prix-fixe with Chateaubriand — 5:30 PM <b>Fri Nov 27</b><small>TableCheck opens exactly 1 month ahead. Set an alarm.</small></div></li>
+    <li><span class="when">Early Nov</span><div>Ogawa Laboratory lunch course · Kifune light-up date check · shinkansen seat reservations<small>Also confirm Kougeanchaya's autumn hours (small Kamakura tea houses often close 4–5pm).</small></div></li>
+    <li><span class="when">Nov 20</span><div>Leave big luggage in Conrad Tokyo storage; carry a 3-night bag for Kansai<small>No takkyubin needed — you're coming back to the same hotel.</small></div></li>
+  </ul>
+</section>
+
+<footer>
+  <span class="mon">旅の恥はかき捨て</span>
+  Built for M &amp; husband · Nov 2026 · Kansai-first so the weekend-only Garaku lands on a holiday and departure day is a market breakfast, not a race.
+</footer>
+
+</body>
+</html>
