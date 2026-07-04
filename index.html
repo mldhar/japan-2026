@@ -101,6 +101,29 @@
   .check li.done .when{text-decoration:line-through}
   #bookcount{color:var(--matcha)}
 
+  /* ---------- Budget tracker ---------- */
+  .curtoggle{display:inline-flex;align-items:center;gap:.4rem;margin-left:.3rem}
+  .curtoggle button{background:transparent;border:1px solid var(--line);color:var(--dim);width:1.7rem;height:1.7rem;
+      border-radius:6px;cursor:pointer;font-size:.9rem;transition:.15s}
+  .curtoggle button.on{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600}
+  .budget{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:.4rem 1.2rem}
+  .brow{display:grid;grid-template-columns:1fr 8.5rem 1.6rem;gap:.6rem;align-items:center;padding:.5rem 0;border-top:1px dashed var(--line)}
+  .brow:first-child{border-top:none}
+  .brow input{background:transparent;border:none;color:var(--text);font-family:var(--sans);font-size:.92rem;padding:.35rem;border-radius:6px;transition:.15s;width:100%}
+  .brow input:focus{outline:none;background:rgba(255,255,255,.05);box-shadow:inset 0 0 0 1px var(--line)}
+  .bamt{display:flex;align-items:center;gap:.1rem;border:1px solid var(--line);border-radius:8px;padding:0 .5rem;background:rgba(0,0,0,.18)}
+  .bamt .cur{color:var(--gold);font-size:.85rem}
+  .bamt input{text-align:right;font-variant-numeric:tabular-nums;color:var(--gold);padding:.35rem .1rem}
+  .bdel{background:transparent;border:none;color:var(--dim);cursor:pointer;font-size:1.2rem;line-height:1;border-radius:6px;transition:.15s;opacity:.45}
+  .bdel:hover{color:var(--momiji);opacity:1}
+  .addrow{margin-top:1rem;background:transparent;border:1px dashed var(--line);color:var(--mist);padding:.6rem 1rem;
+      border-radius:10px;cursor:pointer;font-family:var(--sans);font-size:.85rem;transition:.15s;width:100%}
+  .addrow:hover{border-color:var(--matcha);color:var(--text)}
+  .budget-total{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;margin-top:1.4rem;padding:1rem 1.3rem;
+      background:linear-gradient(90deg,rgba(217,164,65,.1),transparent);border:1px solid rgba(217,164,65,.35);border-radius:14px}
+  .budget-total span{font-family:var(--serif);font-size:1.1rem;color:var(--mist);letter-spacing:.05em}
+  .budget-total b{font-family:var(--serif);font-weight:500;font-size:1.9rem;color:var(--gold);font-variant-numeric:tabular-nums}
+
   footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
   footer .mon{font-family:var(--serif);color:var(--momiji);font-size:1.4rem;display:block;margin-bottom:.4rem}
 </style>
@@ -111,7 +134,7 @@
   <a href="#d1">Arrive</a><a href="#d2">Sat · Uji</a><a href="#d3">Sun · Nara+Kibune</a>
   <a href="#d4" class="hot">Mon · Garaku→Osaka</a><a href="#d5">Tue · Back to Tokyo</a><a href="#d6" class="hot">Wed · Fuji</a>
   <a href="#d7">Thu · Sushi Boat</a><a href="#d8">Fri · teamLab+Wagyu</a><a href="#d9">Sat · Kamakura</a><a href="#d10">Depart</a>
-  <a href="#hotels" class="hot">Hotels</a><a href="#book">Book</a>
+  <a href="#hotels" class="hot">Hotels</a><a href="#budget">Budget</a><a href="#book">Book</a>
 </nav>
 
 <header>
@@ -273,6 +296,16 @@
   <div class="note"><b>Points reality check (researched July 2026):</b> Hilton has devalued repeatedly — Conrad Tokyo standard awards run ~130k/night (up to 190k peak); Conrad Osaka tops out ~110k; Hilton Kyoto ~95k. Rates are dynamic — confirm exact Nov 2026 pricing in the app before committing. Plan A uses ~300k of your 330k points; 5th-night-free applies to consecutive award nights for Silver+ members (any Hilton Amex qualifies) — not triggered here since no stay is 5 award nights. Flights: book round-trip Detroit ⇄ Tokyo (the DTW–Haneda nonstop is the clean play).</div>
 </section>
 
+<section id="budget">
+  <h2>Budget Tracker</h2>
+  <div class="h2sub">Editable and saved on this device — tap any name or amount to change it. Seeded with categories, amounts left blank so nothing's assumed.
+    <span class="curtoggle">Currency <button type="button" data-cur="$">$</button><button type="button" data-cur="¥">¥</button></span></div>
+  <div class="rule"></div>
+  <div class="budget" id="budget-list"></div>
+  <button type="button" class="addrow" id="budget-add">+ Add line item</button>
+  <div class="budget-total"><span>Total</span><b id="budget-total"><span class="cur">$</span>0</b></div>
+</section>
+
 <section id="book">
   <h2>Reservation Countdown</h2>
   <div class="h2sub">Check items off as you lock them in — saved on this device. <b id="bookcount">0 of 7</b> booked.</div>
@@ -346,6 +379,95 @@
     });
   });
   updateCount();
+})();
+
+// ---------- Budget tracker (localStorage) ----------
+(function(){
+  var STORE = 'japan2026.budget';
+  var list = document.getElementById('budget-list');
+  var totalEl = document.getElementById('budget-total');
+  var addBtn = document.getElementById('budget-add');
+  if(!list) return;
+
+  var defaults = {
+    currency: '$',
+    rows: [
+      {name:'Flights (DTW ⇄ HND, 2 travelers)', amount:0},
+      {name:'Hotels — cash nights (Conrad Tokyo)', amount:0},
+      {name:'Food & dining', amount:0},
+      {name:'Activities & tickets (sushi boat, teamLab, driver)', amount:0},
+      {name:'Trains & transit', amount:0},
+      {name:'Shopping & gifts', amount:0}
+    ]
+  };
+
+  var state;
+  try { state = JSON.parse(localStorage.getItem(STORE)); } catch(e){ state = null; }
+  if(!state || !Array.isArray(state.rows)) state = defaults;
+  if(state.currency !== '¥') state.currency = '$';
+
+  function save(){ try { localStorage.setItem(STORE, JSON.stringify(state)); } catch(e){} }
+  function fmt(n){ return (Math.round(n*100)/100).toLocaleString('en-US'); }
+
+  function recalc(){
+    var sum = state.rows.reduce(function(a,r){ return a + (parseFloat(r.amount)||0); }, 0);
+    totalEl.innerHTML = '<span class="cur">'+state.currency+'</span>'+fmt(sum);
+  }
+
+  function render(){
+    list.innerHTML = '';
+    state.rows.forEach(function(row){
+      var el = document.createElement('div');
+      el.className = 'brow';
+
+      var name = document.createElement('input');
+      name.className = 'bname'; name.value = row.name; name.placeholder = 'Line item';
+      name.addEventListener('input', function(){ row.name = name.value; save(); });
+
+      var amt = document.createElement('div'); amt.className = 'bamt';
+      var cur = document.createElement('span'); cur.className = 'cur'; cur.textContent = state.currency;
+      var val = document.createElement('input');
+      val.className = 'bval'; val.type = 'text'; val.inputMode = 'decimal';
+      val.value = row.amount ? row.amount : ''; val.placeholder = '0';
+      val.addEventListener('input', function(){
+        val.value = val.value.replace(/[^0-9.]/g, '');
+        row.amount = parseFloat(val.value) || 0;
+        save(); recalc();
+      });
+      amt.appendChild(cur); amt.appendChild(val);
+
+      var del = document.createElement('button');
+      del.className = 'bdel'; del.type = 'button';
+      del.setAttribute('aria-label', 'remove line item'); del.textContent = '×';
+      del.addEventListener('click', function(){
+        var idx = state.rows.indexOf(row);
+        if(idx > -1) state.rows.splice(idx, 1);
+        save(); render(); recalc();
+      });
+
+      el.appendChild(name); el.appendChild(amt); el.appendChild(del);
+      list.appendChild(el);
+    });
+  }
+
+  addBtn.addEventListener('click', function(){
+    state.rows.push({name:'', amount:0}); save(); render(); recalc();
+    var names = list.querySelectorAll('.bname');
+    if(names.length) names[names.length-1].focus();
+  });
+
+  var curBtns = document.querySelectorAll('.curtoggle button');
+  curBtns.forEach(function(b){
+    b.classList.toggle('on', b.getAttribute('data-cur') === state.currency);
+    b.addEventListener('click', function(){
+      state.currency = b.getAttribute('data-cur');
+      curBtns.forEach(function(x){ x.classList.toggle('on', x.getAttribute('data-cur') === state.currency); });
+      document.querySelectorAll('.bamt .cur').forEach(function(c){ c.textContent = state.currency; });
+      save(); recalc();
+    });
+  });
+
+  render(); recalc();
 })();
 </script>
 
