@@ -88,9 +88,18 @@
 
   /* ---------- Checklist ---------- */
   .check{list-style:none}
-  .check li{display:grid;grid-template-columns:7.5rem 1fr;gap:1rem;padding:.75rem 0;border-bottom:1px dashed var(--line);font-size:.92rem}
+  .check li{display:grid;grid-template-columns:1.35rem 7.5rem 1fr;gap:.7rem 1rem;padding:.75rem 0;border-bottom:1px dashed var(--line);font-size:.92rem;align-items:start;transition:opacity .2s}
   .check .when{color:var(--momiji);font-weight:600;font-size:.8rem;padding-top:.15rem}
   .check li small{color:var(--dim);display:block;font-size:.82rem}
+  .check li input[type=checkbox]{appearance:none;-webkit-appearance:none;width:1.15rem;height:1.15rem;margin-top:.1rem;
+      border:1px solid var(--line);border-radius:5px;background:rgba(255,255,255,.02);cursor:pointer;position:relative;transition:.15s;flex:none}
+  .check li input[type=checkbox]:hover{border-color:var(--matcha)}
+  .check li input[type=checkbox]:checked{background:var(--matcha);border-color:var(--matcha)}
+  .check li input[type=checkbox]:checked::after{content:"";position:absolute;left:.35rem;top:.12rem;
+      width:.28rem;height:.55rem;border:solid var(--ink);border-width:0 2px 2px 0;transform:rotate(45deg)}
+  .check li.done{opacity:.45}
+  .check li.done .when{text-decoration:line-through}
+  #bookcount{color:var(--matcha)}
 
   footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
   footer .mon{font-family:var(--serif);color:var(--momiji);font-size:1.4rem;display:block;margin-bottom:.4rem}
@@ -266,15 +275,16 @@
 
 <section id="book">
   <h2>Reservation Countdown</h2>
+  <div class="h2sub">Check items off as you lock them in — saved on this device. <b id="bookcount">0 of 7</b> booked.</div>
   <div class="rule"></div>
   <ul class="check">
-    <li><span class="when">NOW</span><div>Flights (DTW ⇄ HND round-trip) · all hotels · Mt. Fuji private driver<small>Foliage week + a holiday weekend (Nov 21–23) — inventory evaporates.</small></div></li>
-    <li><span class="when">ASAP</span><div>Yakatabune Sushi Origami — Executive Dinner, <b>Thu Nov 26</b><small>8 seats total. Book via OMAKASE/byfood. Strict cancellation; smart casual dress code.</small></div></li>
-    <li><span class="when">~Sep 27</span><div>teamLab Borderless timed entry, <b>Fri Nov 27</b> ~1:30 PM<small>Sales open ~2 months out. Also grab Art Aquarium (Nov 24) + optional Biovortex Kyoto (Nov 21).</small></div></li>
-    <li><span class="when">~Oct 22</span><div>Aoniyoshi seats, Kyoto → Nara, <b>Sun Nov 22</b><small>Kintetsu booking ~1 month out.</small></div></li>
-    <li><span class="when">Oct 27</span><div>Jambo Hanare prix-fixe with Chateaubriand — 5:30 PM <b>Fri Nov 27</b><small>TableCheck opens exactly 1 month ahead. Set an alarm.</small></div></li>
-    <li><span class="when">Early Nov</span><div>Ogawa Laboratory lunch course · Kifune light-up date check · shinkansen seat reservations<small>Also confirm Kougeanchaya's autumn hours (small Kamakura tea houses often close 4–5pm).</small></div></li>
-    <li><span class="when">Nov 20</span><div>Leave big luggage in Conrad Tokyo storage; carry a 3-night bag for Kansai<small>No takkyubin needed — you're coming back to the same hotel.</small></div></li>
+    <li data-key="res-now"><input type="checkbox" aria-label="mark done"><span class="when">NOW</span><div>Flights (DTW ⇄ HND round-trip) · all hotels · Mt. Fuji private driver<small>Foliage week + a holiday weekend (Nov 21–23) — inventory evaporates.</small></div></li>
+    <li data-key="res-sushi"><input type="checkbox" aria-label="mark done"><span class="when">ASAP</span><div>Yakatabune Sushi Origami — Executive Dinner, <b>Thu Nov 26</b><small>8 seats total. Book via OMAKASE/byfood. Strict cancellation; smart casual dress code.</small></div></li>
+    <li data-key="res-teamlab"><input type="checkbox" aria-label="mark done"><span class="when">~Sep 27</span><div>teamLab Borderless timed entry, <b>Fri Nov 27</b> ~1:30 PM<small>Sales open ~2 months out. Also grab Art Aquarium (Nov 24) + optional Biovortex Kyoto (Nov 21).</small></div></li>
+    <li data-key="res-aoniyoshi"><input type="checkbox" aria-label="mark done"><span class="when">~Oct 22</span><div>Aoniyoshi seats, Kyoto → Nara, <b>Sun Nov 22</b><small>Kintetsu booking ~1 month out.</small></div></li>
+    <li data-key="res-jambo"><input type="checkbox" aria-label="mark done"><span class="when">Oct 27</span><div>Jambo Hanare prix-fixe with Chateaubriand — 5:30 PM <b>Fri Nov 27</b><small>TableCheck opens exactly 1 month ahead. Set an alarm.</small></div></li>
+    <li data-key="res-earlynov"><input type="checkbox" aria-label="mark done"><span class="when">Early Nov</span><div>Ogawa Laboratory lunch course · Kifune light-up date check · shinkansen seat reservations<small>Also confirm Kougeanchaya's autumn hours (small Kamakura tea houses often close 4–5pm).</small></div></li>
+    <li data-key="res-luggage"><input type="checkbox" aria-label="mark done"><span class="when">Nov 20</span><div>Leave big luggage in Conrad Tokyo storage; carry a 3-night bag for Kansai<small>No takkyubin needed — you're coming back to the same hotel.</small></div></li>
   </ul>
 </section>
 
@@ -304,6 +314,38 @@
     el.innerHTML = '<b>紅葉</b> the journey has begun.';
     el.classList.add('today');
   }
+})();
+
+// ---------- Interactive reservation checklist (localStorage) ----------
+(function(){
+  var STORE = 'japan2026.checklist';
+  var items = document.querySelectorAll('.check li[data-key]');
+  var counter = document.getElementById('bookcount');
+  if(!items.length) return;
+
+  var saved = {};
+  try { saved = JSON.parse(localStorage.getItem(STORE)) || {}; } catch(e){ saved = {}; }
+
+  function updateCount(){
+    var done = 0;
+    items.forEach(function(li){ if(li.classList.contains('done')) done++; });
+    if(counter) counter.textContent = done + ' of ' + items.length;
+  }
+
+  items.forEach(function(li){
+    var key = li.getAttribute('data-key');
+    var box = li.querySelector('input[type=checkbox]');
+    var on = !!saved[key];
+    box.checked = on;
+    li.classList.toggle('done', on);
+    box.addEventListener('change', function(){
+      li.classList.toggle('done', box.checked);
+      saved[key] = box.checked;
+      try { localStorage.setItem(STORE, JSON.stringify(saved)); } catch(e){}
+      updateCount();
+    });
+  });
+  updateCount();
 })();
 </script>
 
