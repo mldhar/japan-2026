@@ -68,6 +68,7 @@
   .tag.res{border-color:rgba(232,84,58,.5);color:#f2917e}
   .tag.train{border-color:rgba(217,164,65,.5);color:var(--gold)}
   .tag.food{border-color:rgba(143,174,107,.5);color:var(--matcha)}
+  .tag.done{border-color:var(--matcha);color:var(--matcha);background:rgba(143,174,107,.1)}
 
   /* ---------- Hotels ---------- */
   .plans{display:grid;gap:1.2rem}
@@ -147,6 +148,7 @@
     <div class="chip"><b>9</b> nights</div>
     <div class="chip"><b>2</b> Conrads · <b>1</b> Hilton Kyoto</div>
     <div class="chip"><b>2</b> specialty trains + sushi boat</div>
+    <div class="chip"><b>✓ Flights booked</b> · Delta 275 / 274</div>
     <div class="chip">Big bags <b>stay at Conrad Tokyo</b> during Kansai loop</div>
   </div>
 </header>
@@ -161,6 +163,7 @@
     <div class="dayhead"><span class="daynum">Day 01</span><span class="daydate">Fri, Nov 20</span></div>
     <h3>Arrive Tokyo</h3>
     <div class="route">Haneda → Conrad Tokyo (Shiodome) → Marunouchi</div>
+    <div class="stop"><span class="t">5:45 PM</span><div><b>Land at Haneda — Delta 275</b><small>Departed Detroit 2:00 PM Thu Nov 19 (Delta Main). Clear immigration, then Keikyū or the Airport Limousine to Conrad Tokyo, Shiodome.</small></div></div>
     <div class="stop"><span class="t">Evening</span><div><b>Marunouchi Illuminations</b><small>Champagne-gold streets near Tokyo Station. Easy dinner, early night. Pack a 3-night bag tonight — big luggage stays in Conrad storage while you loop Kansai.</small></div></div>
     <div class="tags"><span class="tag">Low effort</span></div>
   </div>
@@ -214,12 +217,12 @@
 
   <div class="day" id="d6" style="--accent:#d9a441">
     <div class="dayhead"><span class="daynum">Day 06</span><span class="daydate">Wed, Nov 25</span></div>
-    <h3>Mt. Fuji Private Driver Day</h3>
-    <div class="route">Round-trip from Tokyo: Chureito → Kawaguchiko → Oshino Hakkai</div>
-    <div class="stop"><span class="t">9:30 AM</span><div><b>Chureito Pagoda</b><small>THE Fuji photo. ~400 steps; late-Nov air is the year's clearest.</small></div></div>
-    <div class="stop"><span class="t">11:15 AM</span><div><b>Oishi Park, Lake Kawaguchiko</b><small>Lakefront panorama. Hōtō noodles for lunch nearby.</small></div></div>
-    <div class="stop"><span class="t">1:30 PM</span><div><b>Oshino Hakkai</b><small>Crystal spring ponds, thatched village, grilled-fish snacks. Back in Tokyo ~6pm; low-key dinner near the hotel.</small></div></div>
-    <div class="tags"><span class="tag res">Reserve: private driver</span></div>
+    <h3>Mt. Fuji Group Day Tour</h3>
+    <div class="route">Shared coach from Tokyo Station: Ladder Town · Lawson · Lake Kawaguchiko · Oshino Hakkai</div>
+    <div class="stop"><span class="t">8:00 AM</span><div><b>Meet at Tokyo Station — Marunouchi South Exit</b><small>Klook "Mt. Fuji Internet-Famous Attractions" one-day tour (English guide). Meeting point is the Marunouchi South Exit police box; alternate boarding is 8:30 AM at Shinjuku MODE Gakuen. Watch for the night-before email with the exact spot.</small></div></div>
+    <div class="stop"><span class="t">Midday</span><div><b>Ladder Town (Fujiyoshida) + Lawson Fuji photo stop</b><small>The "ladder to Mt. Fuji" street view in Fujiyoshida and the viral Lawson-with-Fuji shot. Late-Nov air is the year's clearest.</small></div></div>
+    <div class="stop"><span class="t">Afternoon</span><div><b>Lake Kawaguchiko + Oshino Hakkai</b><small>Lakefront Fuji panorama, then the crystal spring ponds and thatched village. Exact stop order is set by the guide; back in Tokyo by evening for a low-key dinner near the hotel.</small></div></div>
+    <div class="tags"><span class="tag done">✓ Booked · Klook SUA909787</span></div>
   </div>
 
   <div class="day" id="d7">
@@ -234,7 +237,7 @@
     <div class="stop"><span class="t">2:15 PM</span><div><b>Akasaka Station, Exit 3B</b><small>Harry Potter staircase, portraits, time-turner — direct on the Chiyoda line. Leave by 3:30.</small></div></div>
     <div class="stop"><span class="t">4:30 PM</span><div><b>Yakatabune Sushi Origami ★</b><small>Meet at Higashi-Shinagawa 2-chome Pier (1 min from Tennozu Isle Stn). 8-seat cypress counter, omakase supervised by Michelin-starred Sushi Murayama. Departs 5:00, returns 7:30. Smart casual — no shorts/sandals. ~¥42–47k pp.</small></div></div>
     <div class="stop"><span class="t">8:15 PM</span><div><b>Toyosu Senkyakubanrai nightcap</b><small>The rooftop <em>ashiyu</em> (footbath) garden — free, bay views, open late. Short hop from the pier.</small></div></div>
-    <div class="tags"><span class="tag res">Reserve: cruise</span><span class="tag food">Biggest food day</span></div>
+    <div class="tags"><span class="tag done">✓ Booked · byFood 93748137</span><span class="tag food">Biggest food day</span></div>
   </div>
 
   <div class="day" id="d8">
@@ -262,9 +265,10 @@
   <div class="day" id="d10" style="--accent:#7d7691">
     <div class="dayhead"><span class="daynum">Day 10</span><span class="daydate">Sun, Nov 29</span></div>
     <h3>Tsukiji Send-off → Fly Home from Tokyo</h3>
-    <div class="route">Market breakfast on foot from the hotel → HND/NRT → Detroit</div>
+    <div class="route">Market breakfast on foot from the hotel → Haneda → Detroit</div>
     <div class="stop"><span class="t">8:00 AM</span><div><b>Turret Coffee</b><small>Opens 8 on Sundays — famous lattes, walking distance from Conrad Tokyo.</small></div></div>
-    <div class="stop"><span class="t">8:45 AM</span><div><b>Tsukiji Outer Market</b><small>One last graze: tamagoyaki, toro, strawberry daifuku. Back at the hotel by 11 to check out. (Only if your flight departs after ~2pm — otherwise head straight out.)</small></div></div>
+    <div class="stop"><span class="t">8:45 AM</span><div><b>Tsukiji Outer Market</b><small>One last graze: tamagoyaki, toro, strawberry daifuku. Your Delta 274 leaves Haneda 5:35 PM, so the morning market works — just be back to check out by 11 and to Haneda by ~2:30.</small></div></div>
+    <div class="stop"><span class="t">5:35 PM</span><div><b>Delta 274, Haneda → Detroit</b><small>Arrives DTW 3:31 PM the same day (Nov 29, Delta Main). ✓ Booked.</small></div></div>
     <div class="tags"><span class="tag food">Last bites</span></div>
   </div>
 </section>
@@ -311,7 +315,7 @@
   <div class="h2sub">Verified booking windows, sorted earliest-action-first. Check items off as you lock them in — saved on this device. <b id="bookcount">0 of 9</b> booked.</div>
   <div class="rule"></div>
   <ul class="check">
-    <li data-key="res-now"><input type="checkbox" aria-label="mark done"><span class="when">NOW</span><div>Flights (DTW ⇄ HND round-trip) · all three hotels · Mt. Fuji private driver<small>Hilton opens award nights about a year out, so Nov 2026 is bookable today — peak-foliage award rooms and the Sat Nov 28 free-night-cert stay go early. Reputable Fuji drivers fill up ~2 months ahead in foliage season; lock all of these in now.</small></div></li>
+    <li data-key="res-now"><input type="checkbox" aria-label="mark done"><span class="when">NOW</span><div>Book all three hotels — the last big NOW item<small>✓ Flights (Delta 275 / 274) and the Mt. Fuji group tour (Klook SUA909787) are already booked. Still open: Conrad Tokyo (6 nts), Hilton Kyoto (2 nts), Conrad Osaka (1 nt). Hilton opens award nights about a year out, so Nov 2026 is live now — peak-foliage award rooms and the Sat Nov 28 free-night-cert stay go early. This is your next task.</small></div></li>
     <li data-key="res-sushi"><input type="checkbox" aria-label="mark done"><span class="when">NOW</span><div>Yakatabune Sushi Origami — Executive Dinner, <b>Thu Nov 26</b><small>Only 8 seats; books up to 6 months ahead (already open) via byFood or OMAKASE. Full refund if you cancel 7+ days out, 50% inside 7 days, 100% inside 48 hrs. Smart casual — no shorts/sandals.</small></div></li>
     <li data-key="res-teamlab"><input type="checkbox" aria-label="mark done"><span class="when">Early Sep</span><div>teamLab Borderless timed entry, <b>Fri Nov 27</b> ~1:30 PM<small>Tickets release on a rolling ~2–3 month schedule (October dates went live in late July). Watch teamlab.art from early September and grab the Nov 27 slot the moment it appears — Azabudai Hills sells out fast.</small></div></li>
     <li data-key="res-biovortex"><input type="checkbox" aria-label="mark done"><span class="when">~Sep 21</span><div>teamLab Biovortex Kyoto (optional), <b>Sat Nov 21</b><small>Timed tickets open ~2 months out and autumn slots sell weeks ahead. Book direct or via Klook if you want the pre-Kubota evening slot.</small></div></li>
