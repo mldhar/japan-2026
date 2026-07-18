@@ -136,6 +136,13 @@
   table.costs sup{color:var(--gold);font-size:.65rem}
   table.costs tfoot td{border-top:1px solid rgba(217,164,65,.45);font-family:var(--serif);font-weight:600;color:var(--gold);font-size:1.05rem;padding-top:.7rem}
 
+  /* ---------- Day-of essentials ---------- */
+  .keyrow{display:grid;grid-template-columns:8.5rem 1fr;gap:1rem;padding:.7rem 0;border-top:1px dashed var(--line)}
+  .keyrow:first-child{border-top:none}
+  .keywhen{color:var(--momiji);font-weight:600;font-size:.82rem;padding-top:.15rem;font-variant-numeric:tabular-nums}
+  .keyrow small{display:block;color:var(--dim);font-size:.83rem;line-height:1.5;margin-top:.15rem}
+  @media(max-width:460px){.keyrow{grid-template-columns:1fr}.keywhen{padding-top:0}}
+
   footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
   footer .mon{font-family:var(--serif);color:var(--momiji);font-size:1.4rem;display:block;margin-bottom:.4rem}
 </style>
@@ -146,7 +153,7 @@
   <a href="#d1">Arrive</a><a href="#d2">Sat · Uji</a><a href="#d3">Sun · Nara+Kibune</a>
   <a href="#d4" class="hot">Mon · Garaku→Osaka</a><a href="#d5">Tue · Back to Tokyo</a><a href="#d6" class="hot">Wed · Fuji</a>
   <a href="#d7">Thu · Sushi Boat</a><a href="#d8">Fri · teamLab+Wagyu</a><a href="#d9">Sat · Kamakura</a><a href="#d10">Depart</a>
-  <a href="#hotels" class="hot">Hotels</a><a href="#costs">Costs</a><a href="#budget">Budget</a><a href="#book">Book</a>
+  <a href="#keytimes" class="hot">Key Times</a><a href="#hotels" class="hot">Hotels</a><a href="#costs">Costs</a><a href="#budget">Budget</a><a href="#book">Book</a>
 </nav>
 
 <header>
@@ -281,6 +288,18 @@
     <div class="stop"><span class="t">8:45 AM</span><div><b>Tsukiji Outer Market</b><small>One last graze: tamagoyaki, toro, strawberry daifuku. Your Delta 274 leaves Haneda 5:35 PM, so the morning market works — just be back to check out by 11 and to Haneda by ~2:30.</small></div></div>
     <div class="stop"><span class="t">5:35 PM</span><div><b>Delta 274, Haneda → Detroit</b><small>Arrives DTW 3:31 PM the same day (Nov 29, Delta Main). ✓ Booked.</small></div></div>
     <div class="tags"><span class="tag food">Last bites</span></div>
+  </div>
+</section>
+
+<section id="keytimes">
+  <h2>Day-of Essentials</h2>
+  <div class="h2sub">The fixed commitments you can't be late for — where to be, when, and the gotchas worth remembering.</div>
+  <div class="rule"></div>
+  <div class="budget">
+    <div class="keyrow"><span class="keywhen">Nov 20 · 5:45 PM</span><div><b>Land at Haneda — Delta 275</b><small>From Detroit. Clear immigration, then head to Conrad Tokyo (Shiodome).</small></div></div>
+    <div class="keyrow"><span class="keywhen">Nov 25 · 8:00 AM</span><div><b>Fuji tour meetup — JR Tokyo Station, Marunouchi South Exit</b><small>Arrive 10 min early; the guide holds a "GOGODAY" flag. A guide/vehicle email arrives 8–9 PM the night before — check your spam folder. Latecomers &amp; no-shows aren't refunded. Alt boarding: 8:30 AM at Shinjuku MODE Gakuen.</small></div></div>
+    <div class="keyrow"><span class="keywhen">Nov 26 · 4:30 PM</span><div><b>Sushi cruise meetup — Higashi-Shinagawa 2-chome Pier</b><small>1 min from Tennozu Isle Stn. The boat departs 5:00 sharp and won't wait; back ~7:30. Smart casual — no shorts or sandals.</small></div></div>
+    <div class="keyrow"><span class="keywhen">Nov 29 · 5:35 PM</span><div><b>Fly home — Delta 274 from Haneda</b><small>Arrives Detroit 3:31 PM the same day. Be at Haneda by ~2:30 PM after your Tsukiji morning.</small></div></div>
   </div>
 </section>
 
