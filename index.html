@@ -125,6 +125,17 @@
   .budget-total span{font-family:var(--serif);font-size:1.1rem;color:var(--mist);letter-spacing:.05em}
   .budget-total b{font-family:var(--serif);font-weight:500;font-size:1.9rem;color:var(--gold);font-variant-numeric:tabular-nums}
 
+  /* ---------- Costs table ---------- */
+  .costwrap{overflow-x:auto}
+  table.costs{width:100%;border-collapse:collapse;font-size:.9rem;min-width:24rem}
+  table.costs th{text-align:left;color:var(--dim);font-weight:600;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:.5rem .55rem;border-bottom:1px solid var(--line)}
+  table.costs th:not(:first-child),table.costs td:not(:first-child){text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+  table.costs td{padding:.55rem .55rem;border-bottom:1px dashed var(--line)}
+  table.costs tbody tr:last-child td{border-bottom:none}
+  table.costs .tbd{color:var(--dim);font-style:italic}
+  table.costs sup{color:var(--gold);font-size:.65rem}
+  table.costs tfoot td{border-top:1px solid rgba(217,164,65,.45);font-family:var(--serif);font-weight:600;color:var(--gold);font-size:1.05rem;padding-top:.7rem}
+
   footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
   footer .mon{font-family:var(--serif);color:var(--momiji);font-size:1.4rem;display:block;margin-bottom:.4rem}
 </style>
@@ -135,7 +146,7 @@
   <a href="#d1">Arrive</a><a href="#d2">Sat · Uji</a><a href="#d3">Sun · Nara+Kibune</a>
   <a href="#d4" class="hot">Mon · Garaku→Osaka</a><a href="#d5">Tue · Back to Tokyo</a><a href="#d6" class="hot">Wed · Fuji</a>
   <a href="#d7">Thu · Sushi Boat</a><a href="#d8">Fri · teamLab+Wagyu</a><a href="#d9">Sat · Kamakura</a><a href="#d10">Depart</a>
-  <a href="#hotels" class="hot">Hotels</a><a href="#budget">Budget</a><a href="#book">Book</a>
+  <a href="#hotels" class="hot">Hotels</a><a href="#costs">Costs</a><a href="#budget">Budget</a><a href="#book">Book</a>
 </nav>
 
 <header>
@@ -297,6 +308,29 @@
   </div>
   <div class="note"><b>Points reality check (researched July 2026):</b> Hilton has devalued repeatedly — Conrad Tokyo standard awards run ~130k/night (up to 190k peak); Hilton Kyoto ~95k. Rates are dynamic — confirm exact Nov 2026 pricing in the app before committing. Plan A now uses ~285k of your 330k points (Hilton Kyoto ×3); the free-night cert covers the priciest Conrad Tokyo Saturday. <b>Booking today:</b> your points haven't posted yet, so book all three reservations on <b>refundable/flexible cash rates now</b> to lock peak-foliage availability, then rebook Kyoto on points + apply the cert once they land, cancelling the cash holds. Book the new award stay first, confirm it, then cancel the cash one.</div>
   <div class="note" style="background:rgba(217,164,65,.08);border-color:rgba(217,164,65,.35)"><b style="color:var(--gold)">Free-night cert — done, on Fri Nov 27:</b> The cert is redeemed (phone-only, as expected). It landed on <b>Fri Nov 27</b>, not Sat Nov 28 — the Saturday had no standard-award space. Because a standalone Nov 28 night couldn't be booked at the time, the Nov 27→29 cash reservation currently <b>overlaps the cert on Nov 27</b>; Amex is following up with the hotel to trim that stay to <b>Nov 28 → 29</b> so the Saturday stays covered (make sure it's trimmed, not cancelled). Ask Conrad to keep you in the <b>same room across Nov 24–29</b> so you're not moving between the three back-to-back reservations.</div>
+</section>
+
+<section id="costs">
+  <h2>Booked — What We've Spent</h2>
+  <div class="h2sub">Actual costs as booked, in yen and USD (≈ ¥162/$). Hotels bill in yen and flights in USD — the other column is the conversion. Updated as we book.</div>
+  <div class="rule"></div>
+  <div class="costwrap">
+    <table class="costs">
+      <thead><tr><th>Item</th><th>¥ (JPY)</th><th>USD</th></tr></thead>
+      <tbody>
+        <tr><td>Flights · Delta 275 / 274 — 2 tickets <sup>1</sup></td><td>¥893,000</td><td>$5,500</td></tr>
+        <tr><td>Conrad Tokyo · Nov 20 (1 night)</td><td>¥181,422</td><td>$1,117</td></tr>
+        <tr><td>Hilton Kyoto · Nov 21–24 (3 nights)</td><td>¥417,458</td><td>$2,571</td></tr>
+        <tr><td>Conrad Tokyo · Nov 24–27 (3 nights)</td><td>¥475,955</td><td>$2,931</td></tr>
+        <tr><td>Conrad Tokyo · Nov 27 — free-night cert</td><td>¥0</td><td>$0</td></tr>
+        <tr><td>Conrad Tokyo · Nov 28 (1 night) <sup>2</sup></td><td>¥181,422</td><td>$1,117</td></tr>
+        <tr><td>Mt. Fuji tour · Klook (2 pax)</td><td class="tbd">confirm</td><td class="tbd">confirm</td></tr>
+        <tr><td>Sushi Origami · byFood — pay at venue <sup>3</sup></td><td>~¥90,000</td><td>~$554</td></tr>
+      </tbody>
+      <tfoot><tr><td>Total booked · flights + hotels</td><td>¥2,149,000</td><td>$13,236</td></tr></tfoot>
+    </table>
+  </div>
+  <div class="note" style="background:rgba(143,174,107,.08);border-color:rgba(143,174,107,.35)"><b style="color:var(--matcha)">Notes:</b> <sup>1</sup> $2,750.23 per ticket confirmed (Megan's receipt); Vishut's assumed equal. <sup>2</sup> This reservation is currently <b>¥362,843 for 2 nights</b> (Nov 27–28) until Amex trims the double-booked Nov 27 — after the trim it's ~¥181,422 for just the Nov 28 night. <sup>3</sup> Sushi is paid on the boat (~¥42–47k pp), not prepaid. The total covers flights + hotels (after the overlap fix) and excludes the Fuji tour (to confirm) and the pay-at-venue sushi. Converting Hilton Kyoto to points later removes <b>¥417,458 / $2,571</b> from the cash total. Rate ≈ ¥162/$; hotels bill in yen, so USD figures are indicative.</div>
 </section>
 
 <section id="budget">
