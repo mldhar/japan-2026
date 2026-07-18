@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Japan · Nov 20–29, 2026</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍁</text></svg>">
 <style>
   :root{
     --ink:#16141f; --ink2:#1e1b2a; --card:#232031; --line:#37324a;
@@ -18,12 +19,16 @@
 
   /* ---------- Nav ---------- */
   nav{position:sticky;top:0;z-index:50;background:rgba(22,20,31,.92);backdrop-filter:blur(10px);
-      border-bottom:1px solid var(--line);display:flex;gap:.25rem;overflow-x:auto;padding:.6rem 1rem;
-      -webkit-overflow-scrolling:touch}
-  nav a{color:var(--dim);text-decoration:none;font-size:.8rem;letter-spacing:.05em;white-space:nowrap;
+      border-bottom:1px solid var(--line);display:flex;align-items:center;gap:.6rem;padding:.5rem .9rem}
+  .navlinks{display:flex;gap:.25rem;overflow-x:auto;-webkit-overflow-scrolling:touch;margin-left:auto;scrollbar-width:none}
+  .navlinks::-webkit-scrollbar{display:none}
+  .navlinks a{color:var(--dim);text-decoration:none;font-size:.8rem;letter-spacing:.05em;white-space:nowrap;
       padding:.4rem .85rem;border-radius:999px;border:1px solid transparent;transition:.2s}
-  nav a:hover{color:var(--text);border-color:var(--line)}
-  nav a.hot{color:var(--gold)}
+  .navlinks a:hover{color:var(--text);border-color:var(--line)}
+  .navlinks a.hot{color:var(--gold)}
+  .brand{flex:none;display:grid;place-items:center;width:2.05rem;height:2.05rem;border-radius:999px;font-size:1.15rem;
+      line-height:1;text-decoration:none;border:1px solid rgba(232,84,58,.5);background:rgba(232,84,58,.08);transition:.2s}
+  .brand:hover{background:rgba(232,84,58,.18);transform:scale(1.06)}
 
   /* ---------- Hero / dashboard ---------- */
   header{position:relative;padding:4.5rem 1.5rem 3rem;text-align:center;overflow:hidden;
@@ -147,11 +152,13 @@
 <body>
 
 <nav>
-  <a href="#status" class="hot">Status</a><a href="#days">Itinerary</a><a href="#keytimes" class="hot">Key Times</a>
-  <a href="#hotels">Hotels</a><a href="#costs">Costs</a><a href="#confirm">Confirmations</a><a href="#todo">To-Do</a>
+  <div class="navlinks">
+    <a href="#status" class="hot">Status</a><a href="#days">Itinerary</a><a href="#keytimes" class="hot">Key Times</a><a href="#hotels">Hotels</a><a href="#costs">Costs</a><a href="#confirm">Confirmations</a><a href="#todo">To-Do</a>
+  </div>
+  <a class="brand" href="#top" aria-label="Back to top" title="Japan · Nov 20–29, 2026">🍁</a>
 </nav>
 
-<header>
+<header id="top">
   <span class="kanji k1">紅葉</span><span class="kanji k2">旅</span>
   <div class="eyebrow">November 20 – 29 · 2026 · Round-trip Tokyo (DTW ⇄ HND)</div>
   <h1>Japan in <em>Momiji</em> Season</h1>
