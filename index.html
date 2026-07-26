@@ -3,6 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nine nights in Japan for momiji season, Nov 20–29, 2026. Kansai first, then Tokyo: the day by day plan, hotels, costs, confirmation numbers and everything still to book.">
+<meta name="theme-color" content="#16141f">
+<meta name="color-scheme" content="dark">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Japan 2026">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Japan 2026">
+<meta property="og:title" content="Japan · Nov 20–29, 2026">
+<meta property="og:description" content="Nine nights in Japan for momiji season. Kansai first, then Tokyo: the day by day plan, hotels, costs, confirmation numbers and everything still to book.">
+<meta property="og:url" content="https://mldhar.github.io/japan-2026/">
+<meta name="twitter:card" content="summary">
 <title>Japan · Nov 20–29, 2026</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='55' font-size='82' text-anchor='middle' dominant-baseline='central' fill='%23e8543a'>旅</text></svg>">
 <style>
@@ -182,7 +195,8 @@
   @media(max-width:460px){.pwhen{grid-template-columns:1fr;gap:.1rem}}
   a.map{color:var(--gold);text-decoration:none;white-space:nowrap;border-bottom:1px dashed rgba(217,164,65,.55)}
   a.map:hover{color:var(--text)}
-  .tile.next b{font-size:1.5rem}
+  .tile.next b{font-size:1.3rem}
+  .subhead{font-family:var(--serif);font-weight:500;font-size:1.05rem;color:#f2917e;margin:1.8rem 0 .1rem}
   .tile.due b{color:var(--momiji)}
 
   footer{border-top:1px solid var(--line);margin-top:5rem;padding:2.5rem 1.5rem;text-align:center;color:var(--dim);font-size:.8rem}
@@ -212,14 +226,14 @@
 <body>
 
 <nav>
-  <a class="brand" href="#top" aria-label="Back to top" title="Japan · Nov 20–29, 2026">旅</a>
+  <a class="brand" href="#top" aria-label="Back to top" title="Japan · Nov 20–29, 2026" lang="ja">旅</a>
   <div class="navlinks">
     <a href="#status" class="hot">Status</a><a href="#pocket" class="hot">Pocket</a><a href="#days">Itinerary</a><a href="#keytimes" class="hot">Key Times</a><a href="#hotels">Hotels</a><a href="#costs">Costs</a><a href="#confirm">Confirmations</a><a href="#todo">To-Do</a>
   </div>
 </nav>
 
 <header id="top">
-  <span class="kanji k1">紅葉</span><span class="kanji k2">旅</span>
+  <span class="kanji k1" aria-hidden="true">紅葉</span><span class="kanji k2" aria-hidden="true">旅</span>
   <div class="eyebrow">November 20 – 29 · 2026 · Round-trip Tokyo (DTW ⇄ HND)</div>
   <h1>Japan in <em>Momiji</em> Season</h1>
   <p class="sub">Kansai first, Tokyo grand finale. Nine nights across Kyoto, Uji, Nara, Osaka, Mt. Fuji & Tokyo: food pilgrimages, two specialty trains, one sushi boat, peak autumn color.</p>
@@ -253,9 +267,7 @@
     </div>
     <div class="boardcol flag">
       <h4>⚠ Follow-ups</h4>
-      <ul>
-        <li><b>Convert Kyoto to points</b><i>by Nov 14</i></li>
-      </ul>
+      <ul id="boardFlag"></ul>
     </div>
   </div>
 </section>
@@ -267,14 +279,14 @@
   <div class="pgrid">
     <div class="pbox">
       <h4>🏯 Conrad Tokyo · Nov 20, 24–29</h4>
-      <div class="jp">〒105-7337 東京都港区東新橋1-9-1</div>
+      <div class="jp" lang="ja">〒105-7337 東京都港区東新橋1-9-1</div>
       <div class="en">1-9-1 Higashi-Shinbashi, Minato-ku, Tokyo</div>
       <div class="plinks"><a href="tel:+81363888000">+81 3-6388-8000</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Conrad+Tokyo+Higashi-Shinbashi" target="_blank" rel="noopener">Map ↗</a></div>
       <div class="en"><b>Conf</b> 3509123837 · 3507744685 · 3504754597 · 3511415131</div>
     </div>
     <div class="pbox">
       <h4>🏯 Hilton Kyoto · Nov 21–24</h4>
-      <div class="jp">〒604-8006 京都府京都市中京区下丸屋町416</div>
+      <div class="jp" lang="ja">〒604-8006 京都府京都市中京区下丸屋町416</div>
       <div class="en">416 Shimomaruyacho, Nakagyo-ku, Kyoto</div>
       <div class="plinks"><a href="tel:+81752128007">+81 75-212-8007</a><a class="map" href="https://www.google.com/maps/search/?api=1&amp;query=Hilton+Kyoto+Shimomaruyacho" target="_blank" rel="noopener">Map ↗</a></div>
       <div class="en"><b>Conf</b> 3508072403 · free-cancel until Nov 14</div>
@@ -488,7 +500,7 @@
 
 <section id="todo">
   <h2>🎋 Still to Book</h2>
-  <div class="h2sub">Upcoming reservation windows, earliest-action first. Check items off as you lock them in; they are saved on this device. <b id="bookcount">0 of 7</b> done.</div>
+  <div class="h2sub">Reservation windows first, earliest action at the top, then the follow-ups that run to a deadline rather than an opening. Check items off as you lock them in; they are saved on this device. <b id="bookcount">0 of 7</b> windows done.</div>
   <div class="rule"></div>
   <ul class="check">
     <li data-key="res-samurai" data-when="2026-07-01" data-label="Samurai Restaurant" data-short="book now"><input type="checkbox" aria-label="Mark Samurai Restaurant as booked"><span class="when">Book now</span><div>Samurai Restaurant: <b>Tue Nov 24, the 4:30 PM show</b><small>Three shows daily: 10:50 AM (¥8,000 door), 2:00 PM and 4:30 PM (¥10,000 door); each runs ~1h40 and admission includes a bento or two drinks. <b>There is no evening show</b>; 4:30–6:10 PM is the only slot that works after the 11 AM shinkansen, and doors are 4:00. 18+. Cheaper channels: Rakuten Travel Experiences ~¥8,800, Klook ~¥9,966 with a sukiyaki bento; KKday and GetYourGuide also sell it. <b>Confirm the venue is open Tue Nov 24</b> (some older listings show a Thu/Sun closure), then add what you actually paid to Costs.</small></div></li>
@@ -499,12 +511,17 @@
     <li data-key="res-aoniyoshi" data-when="2026-10-22" data-label="Aoniyoshi" data-short="Oct 22"><input type="checkbox" aria-label="Mark Aoniyoshi seats as booked"><span class="when">Oct 22 · 10:30 AM JST</span><div>Aoniyoshi seats, Kyoto → Nara, <b>Sun Nov 22</b><small>Kintetsu limited-express tickets go on sale 10:30 AM the same date one month prior. Book at the Kintetsu site (or a Kyoto/Osaka ticket office) right at release: limited seats, popular train.</small></div></li>
     <li data-key="res-earlynov" data-when="2026-11-01" data-label="Art Aquarium · Ogawa" data-short="early Nov"><input type="checkbox" aria-label="Mark Art Aquarium and Ogawa lunch as booked"><span class="when">Mid-Oct → early Nov</span><div>Art Aquarium (Nov 24) · Ogawa Coffee Lab lunch (Nov 28) · Kifune light-up check<small>Art Aquarium timed tickets sell online; buy ~2–3 weeks out. Ogawa Laboratory's ¥2,950 lunch course takes online reservations. Eizan/Kifune light-up: 2026 dates post mid-to-late October and historically cover Nov 22, so the evening ride is a safe bet (normal fare, no reservation). Also check Kougeanchaya's autumn hours.</small></div></li>
   </ul>
+
+  <h3 class="subhead">⚠ Follow-ups</h3>
+  <ul class="check follow">
+    <li data-key="fu-kyoto-points" data-when="2026-11-14" data-lead="30" data-kind="deadline" data-label="Convert Kyoto to points" data-short="by Nov 14"><input type="checkbox" aria-label="Mark the Hilton Kyoto points conversion as done"><span class="when">By Nov 14</span><div>Convert Hilton Kyoto to points before the free-cancel cutoff, <b>Sat Nov 14</b><small>Worth <b>¥417,458 / $2,571</b> back, the largest single saving left on this trip. The order matters: wait for the ~330k Amex points to post to Vishut's account, book the ~285k-point award stay, confirm it, and cancel cash reservation 3508072403 only once the award is in hand. Cancelling first risks losing the room at peak momiji. Past Nov 14 the cancellation costs the first night's room and tax.</small></div></li>
+  </ul>
 </section>
 
 </main>
 
 <footer>
-  <span class="mon">旅の恥はかき捨て</span>
+  <span class="mon" lang="ja">旅の恥はかき捨て</span>
   Built for M &amp; husband · Nov 2026 · Kansai-first so the weekend-only Garaku lands on a holiday and departure day is a market breakfast, not a race.
 </footer>
 
@@ -544,10 +561,10 @@
     el.textContent = 1;
     if(lab) lab.textContent = 'Day to departure';
   } else if(toDep === 0){
-    el.textContent = '今日';
+    el.textContent = '今日'; el.lang = 'ja';
     if(lab) lab.textContent = 'Departure day · DTW 2:00 PM';
   } else {
-    el.textContent = '紅葉';
+    el.textContent = '紅葉'; el.lang = 'ja';
     if(lab) lab.textContent = 'Trip complete';
   }
 })();
@@ -577,11 +594,13 @@
 // ---------- Checklist drives the counter, the status board and the next-action tile ----------
 (function(){
   var STORE = 'japan2026.checklist';
-  var items = Array.prototype.slice.call(document.querySelectorAll('.check li[data-key]'));
-  if(!items.length) return;
+  var win  = Array.prototype.slice.call(document.querySelectorAll('.check:not(.follow) li[data-key]'));
+  var flag = Array.prototype.slice.call(document.querySelectorAll('.follow li[data-key]'));
+  var all  = win.concat(flag);
+  if(!all.length) return;
   var counter   = document.getElementById('bookcount');
   var bookedNum = document.getElementById('bookedNum'), bookedLab = document.getElementById('bookedLabel');
-  var board     = document.getElementById('boardTodo');
+  var board     = document.getElementById('boardTodo'), boardF = document.getElementById('boardFlag');
   var nextTile  = document.getElementById('nextTile');
   var nextWhen  = document.getElementById('nextWhen'), nextWhat = document.getElementById('nextWhat');
   var BASE = 4;   // flights, hotels, sushi boat, Fuji tour: booked outside this list
@@ -595,49 +614,66 @@
     return p.length === 3 ? new Date(+p[0], +p[1]-1, +p[2]) : null;
   }
 
-  function refresh(){
-    var done = items.filter(function(li){ return li.classList.contains('done'); });
-    var open = items.filter(function(li){ return !li.classList.contains('done'); });
+  // A window is actionable from the day it opens. A deadline starts competing for
+  // attention "lead" days early, so an expensive cutoff outranks a later opening.
+  function urgency(li){
+    var d = when(li);
+    if(!d) return null;
+    var lead = parseInt(li.getAttribute('data-lead') || '0', 10);
+    return lead ? new Date(d.getTime() - lead * 86400000) : d;
+  }
 
-    if(counter)   counter.textContent = done.length + ' of ' + items.length;
-    if(bookedNum) bookedNum.textContent = BASE + done.length;
-    if(bookedLab) bookedLab.textContent = open.length ? ('Booked · ' + open.length + ' to go') : 'Booked · all done';
-
-    if(board){
-      board.textContent = '';
-      if(!open.length){
-        var li0 = document.createElement('li');
-        var b0 = document.createElement('b'); b0.textContent = 'Everything booked';
-        var i0 = document.createElement('i'); i0.textContent = '✓';
-        li0.appendChild(b0); li0.appendChild(i0); board.appendChild(li0);
-      } else {
-        open.forEach(function(it){
-          var li = document.createElement('li');
-          var b = document.createElement('b'); b.textContent = it.getAttribute('data-label') || '';
-          var i = document.createElement('i'); i.textContent = it.getAttribute('data-short') || '';
-          li.appendChild(b); li.appendChild(i); board.appendChild(li);
-        });
-      }
+  function fill(ul, list, emptyLabel){
+    if(!ul) return;
+    ul.textContent = '';
+    if(!list.length){
+      var li0 = document.createElement('li');
+      var b0 = document.createElement('b'); b0.textContent = emptyLabel;
+      var i0 = document.createElement('i'); i0.textContent = '✓';
+      li0.appendChild(b0); li0.appendChild(i0); ul.appendChild(li0);
+      return;
     }
+    list.forEach(function(it){
+      var li = document.createElement('li');
+      var b = document.createElement('b'); b.textContent = it.getAttribute('data-label') || '';
+      var i = document.createElement('i'); i.textContent = it.getAttribute('data-short') || '';
+      li.appendChild(b); li.appendChild(i); ul.appendChild(li);
+    });
+  }
+
+  function refresh(){
+    var isOpen = function(li){ return !li.classList.contains('done'); };
+    var doneW = win.filter(function(li){ return li.classList.contains('done'); });
+    var openW = win.filter(isOpen), openF = flag.filter(isOpen);
+
+    if(counter)   counter.textContent = doneW.length + ' of ' + win.length;
+    if(bookedNum) bookedNum.textContent = BASE + doneW.length;
+    if(bookedLab) bookedLab.textContent = openW.length ? ('Booked · ' + openW.length + ' to go') : 'Booked · all done';
+
+    fill(board,  openW, 'Everything booked');
+    fill(boardF, openF, 'All clear');
 
     if(nextWhen && nextWhat){
       var now = new Date();
       var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-      var queue = open.slice().sort(function(a,b){ return (when(a) || 0) - (when(b) || 0); });
+      var queue = openW.concat(openF).sort(function(a,b){ return (urgency(a) || 0) - (urgency(b) || 0); });
       if(!queue.length){
         nextWhen.textContent = '✓';
-        nextWhat.textContent = 'Nothing left to book';
+        nextWhat.textContent = 'Nothing outstanding';
         if(nextTile) nextTile.classList.remove('due');
       } else {
-        var it = queue[0], d = when(it), due = !d || d <= today;
-        nextWhen.textContent = due ? 'Now' : (MON[d.getMonth()] + ' ' + d.getDate());
+        var it = queue[0], d = when(it), u = urgency(it);
+        var due = !u || u <= today;
+        var isDeadline = it.getAttribute('data-kind') === 'deadline';
+        nextWhen.textContent = isDeadline ? ('by ' + MON[d.getMonth()] + ' ' + d.getDate())
+                                          : (due ? 'Now' : MON[d.getMonth()] + ' ' + d.getDate());
         nextWhat.textContent = 'Next · ' + (it.getAttribute('data-label') || '');
         if(nextTile) nextTile.classList.toggle('due', due);
       }
     }
   }
 
-  items.forEach(function(li){
+  all.forEach(function(li){
     var key = li.getAttribute('data-key');
     var box = li.querySelector('input[type=checkbox]');
     var on = !!saved[key];
